@@ -1,0 +1,8 @@
+LOCAL
+URL: http://localhost/kursusku-prototype/
+
+HOSTING
+URL:
+
+KESIMPULAN
+Local berhasil dijalankan.

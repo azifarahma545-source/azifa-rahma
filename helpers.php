@@ -18,5 +18,6 @@ function sisaKursi(int $quota, int $registered): int
 function formatTanggal(string $date): string
 {
     $value = new DateTimeImmutable($date);
+
     return $value->format('d-m-Y');
 }
