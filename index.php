@@ -1,226 +1,128 @@
 <?php
-
-require_once __DIR__ . '/helpers.php';
-
-$courses = [
-    [
-        'code' => 'WEB-01',
-        'name' => 'Web Dasar',
-        'fee' => 200000,
-        'quota' => 30,
-        'registered' => 12,
-        'start_date' => '2026-09-21'
-    ],
-    [
-        'code' => 'PHP-01',
-        'name' => 'PHP Dasar',
-        'fee' => 250000,
-        'quota' => 30,
-        'registered' => 18,
-        'start_date' => '2026-09-22'
-    ],
-    [
-        'code' => 'PHP-02',
-        'name' => 'PHP Lanjutan',
-        'fee' => 300000,
-        'quota' => 25,
-        'registered' => 24,
-        'start_date' => '2026-09-24'
-    ],
-    [
-        'code' => 'LAR-01',
-        'name' => 'Laravel Fundamental',
-        'fee' => 350000,
-        'quota' => 25,
-        'registered' => 25,
-        'start_date' => '2026-09-28'
-    ],
-    [
-        'code' => 'DB-01',
-        'name' => 'MySQL Dasar',
-        'fee' => 275000,
-        'quota' => 20,
-        'registered' => 0,
-        'start_date' => '2026-10-01'
-    ],
-    [
-        'code' => 'UI-01',
-        'name' => 'UI Web Dasar',
-        'fee' => 225000,
-        'quota' => 35,
-        'registered' => 9,
-        'start_date' => '2026-10-03'
-    ],
-];
-
+$siteName = 'KursusKu';
+$tagline = 'Belajar, daftar, dan kelola kursus dalam satu tempat.';
+$year = date('Y');
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Katalog KursusKu</title>
-
-    <link
-        rel="stylesheet"
-        href="assets/css/style.css"
-    >
-
+    <title><?= htmlspecialchars($siteName) ?></title>
 </head>
 
 <body>
 
-<header class="site-header">
-
-    <div class="container nav-wrap">
-
-        <a
-            href="index.php"
-            class="brand"
-        >
-            KursusKu
-        </a>
-
-        <div class="nav-links">
+    <header>
+        <nav aria-label="Navigasi utama">
 
             <a href="index.php">
-                Katalog
+                <strong><?= htmlspecialchars($siteName) ?></strong>
             </a>
 
-            <a href="registration.php">
-                Daftar Kursus
-            </a>
+            <a href="#keunggulan">Keunggulan</a>
+            <a href="#katalog">Katalog</a>
+            <a href="#alur">Cara Daftar</a>
+            <a href="#kontak">Kontak</a>
 
-        </div>
+        </nav>
+    </header>
 
-    </div>
+<main>
 
-</header>
-
-
-<main class="container">
-
-    <section class="page-intro">
-
-        <p class="eyebrow">
-            Kursus Online
-        </p>
-
-        <h1>
-            Katalog KursusKu
-        </h1>
-
-        <p>
-            Pilih kursus yang sesuai dengan kebutuhan belajar kamu.
-        </p>
-
-        <a
-            href="registration.php"
-            class="btn-primary"
-        >
-            Daftar Kursus
-        </a>
-
+    <section id="hero">
+        <h1><?= htmlspecialchars($tagline) ?></h1>
+        <p>Temukan kursus teknologi yang relevan untuk meningkatkan keterampilan Anda.</p>
+        <a href="#katalog">Lihat Katalog Kursus</a>
     </section>
 
+    <section id="keunggulan">
+        <h2>Mengapa Memilih KursusKu?</h2>
 
-    <section class="form-card">
+        <article>
+            <h3>Materi Terarah</h3>
+            <p>Materi disusun bertahap dari dasar hingga praktik.</p>
+        </article>
 
-        <h2>Daftar Kursus</h2>
+        <article>
+            <h3>Belajar dengan Proyek</h3>
+            <p>Setiap tahap menghasilkan bagian nyata dari aplikasi.</p>
+        </article>
 
-        <div class="table-wrapper">
+        <article>
+            <h3>Pendampingan Praktik</h3>
+            <p>Mahasiswa belajar melalui demonstrasi, latihan, dan evaluasi.</p>
+        </article>
+    </section>
 
-            <table>
+    <section id="katalog">
+        <h2>Katalog Kursus</h2>
 
-                <thead>
+        <article>
+            <h3>Web Dasar</h3>
+            <p>Belajar struktur HTML dan dasar pengembangan web.</p>
+        </article>
 
-                    <tr>
-                        <th>Kode</th>
-                        <th>Nama Kursus</th>
-                        <th>Biaya</th>
-                        <th>Tanggal Mulai</th>
-                        <th>Sisa Kursi</th>
-                        <th>Status</th>
-                    </tr>
+        <article>
+            <h3>PHP Dasar</h3>
+            <p>Belajar variabel, operator, percabangan, looping, dan form.</p>
+        </article>
 
-                </thead>
+        <article>
+            <h3>Laravel Dasar</h3>
+            <p>Mengenal framework, route, controller, view, dan database.</p>
+        </article>
+    </section>
 
-                <tbody>
+    <section id="alur">
+        <h2>Cara Mendaftar</h2>
 
-                    <?php foreach ($courses as $course): ?>
+        <ol>
+            <li>Pilih kursus yang diminati.</li>
+            <li>Isi form pendaftaran.</li>
+            <li>Periksa kembali data.</li>
+            <li>Kirim pendaftaran dan tunggu konfirmasi.</li>
+        </ol>
+    </section>
 
-                        <?php
+    <section id="media">
+        <h2>Kenali Program Kami</h2>
 
-                        $status = statusKursus(
-                            $course['quota'],
-                            $course['registered']
-                        );
+        <img
+            src="assets/images/hero-kursus.jpg"
+            alt="Mahasiswa sedang mengikuti kegiatan kursus komputer"
+            width="300">
 
-                        $statusClass = $status === 'Penuh'
-                            ? 'badge-full'
-                            : 'badge-available';
+        <h3>Video Singkat</h3>
 
-                        ?>
+        <video controls width="300">
+            <source src="assets/video/intro-kursus.mp4" type="video/mp4">
+            Browser Anda tidak mendukung video HTML5.
+        </video>
 
-                        <tr>
+        <p>
+            Pelajari juga
+            <a href="https://www.php.net/" target="_blank" rel="noopener">
+                dokumentasi PHP
+            </a>.
+        </p>
+    </section>
 
-                            <td>
-                                <?= htmlspecialchars($course['code']) ?>
-                            </td>
-
-                            <td>
-                                <?= htmlspecialchars(
-                                    trim($course['name'])
-                                ) ?>
-                            </td>
-
-                            <td>
-                                <?= rupiah($course['fee']) ?>
-                            </td>
-
-                            <td>
-                                <?= formatTanggal(
-                                    $course['start_date']
-                                ) ?>
-                            </td>
-
-                            <td>
-                                <?= sisaKursi(
-                                    $course['quota'],
-                                    $course['registered']
-                                ) ?>
-                            </td>
-
-                            <td>
-
-                                <span class="<?= $statusClass ?>">
-                                    <?= htmlspecialchars($status) ?>
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-                    <?php endforeach; ?>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
+    <section id="kontak">
+        <h2>Kontak</h2>
+        <p>Email: kursusku@example.test</p>
+        <p>Alamat: Laboratorium Komputer - data latihan</p>
     </section>
 
 </main>
 
-</body>
+</main>
+<footer>
+    <small>&copy; <?= $year ?> <?= htmlspecialchars($siteName) ?></small>
+</footer>
 
+</body>
 </html>
