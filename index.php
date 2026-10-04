@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/data.php';
+
 $siteName = 'KursusKu';
 $tagline = 'Belajar, daftar, dan kelola kursus dalam satu tempat.';
 $year = date('Y');
@@ -12,6 +14,13 @@ $year = date('Y');
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title><?= htmlspecialchars($siteName) ?></title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Font Awesome untuk icon -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -19,25 +28,90 @@ $year = date('Y');
     <header>
         <nav aria-label="Navigasi utama">
 
-            <a href="index.php">
-                <strong><?= htmlspecialchars($siteName) ?></strong>
-            </a>
+           <a href="index.php" class="brand">
+    <i class="fa-solid fa-heart"></i>
+    <strong><?= htmlspecialchars($siteName) ?></strong>
+</a>
 
-            <a href="#keunggulan">Keunggulan</a>
-            <a href="#katalog">Katalog</a>
-            <a href="#alur">Cara Daftar</a>
-            <a href="#kontak">Kontak</a>
-
+            <a href="#hero">Beranda</a>
+<a href="#keunggulan">Keunggulan</a>
+<a href="#fasilitas">Fasilitas</a>
+<a href="#katalog">Katalog</a>
+<a href="#alur">Cara Daftar</a>
+<a href="#media">Media</a>
+<a href="#kontak">Kontak</a>
         </nav>
     </header>
 
 <main>
 
-    <section id="hero">
-        <h1><?= htmlspecialchars($tagline) ?></h1>
-        <p>Temukan kursus teknologi yang relevan untuk meningkatkan keterampilan Anda.</p>
-        <a href="#katalog">Lihat Katalog Kursus</a>
-    </section>
+   <section id="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-badge">
+            ✦ Tingkatkan Skill, Raih Masa Depan
+        </p>
+
+        <h1>
+            Belajar, daftar, dan
+            <span>kelola kursus</span>
+            dalam satu tempat.
+        </h1>
+
+        <p class="hero-description">
+            Temukan kursus teknologi yang relevan untuk
+            meningkatkan keterampilan Anda.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#katalog" class="btn-main">
+                Lihat Katalog Kursus
+            </a>
+
+            <a href="#alur" class="btn-outline">
+                Pelajari Lebih Lanjut →
+            </a>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <strong>3+</strong>
+                <small>Kursus Tersedia</small>
+            </div>
+
+            <div>
+                <strong>Praktis</strong>
+                <small>Materi Pembelajaran</small>
+            </div>
+
+            <div>
+                <strong>Fleksibel</strong>
+                <small>Metode Belajar</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <img
+            src="assets/images/hero-beranda.jpg"
+            alt="Kegiatan belajar kursus"
+        >
+
+        <div class="image-caption">
+            ✦ "Kegiatan Kursus Komputer"
+        </div>
+
+    </div>
+
+</section>
 
     <section id="keunggulan">
         <h2>Mengapa Memilih KursusKu?</h2>
@@ -58,9 +132,22 @@ $year = date('Y');
         </article>
     </section>
 
+    <section id="fasilitas">
+        <h2>Fasilitas</h2>
+
+        <ul>
+            <?php foreach ($facilities as $facility): ?>
+
+                <li>
+                    <?= htmlspecialchars($facility) ?>
+                </li>
+
+            <?php endforeach; ?>
+        </ul>
+    </section>
+
     <section id="katalog">
         <h2>Katalog Kursus</h2>
-
         <article>
             <h3>Web Dasar</h3>
             <p>Belajar struktur HTML dan dasar pengembangan web.</p>
@@ -119,7 +206,6 @@ $year = date('Y');
 
 </main>
 
-</main>
 <footer>
     <small>&copy; <?= $year ?> <?= htmlspecialchars($siteName) ?></small>
 </footer>

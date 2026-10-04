@@ -1,3 +1,10 @@
+<?php
+
+require __DIR__ . '/data.php';
+require __DIR__ . '/helpers.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -71,15 +78,16 @@
     <section class="form-card">
 
         <form
-            action="process-registration.php"
+            action="process.php"
             method="POST"
             class="registration-form"
+            novalidate
         >
 
             <input
                 type="hidden"
                 name="source"
-                value="week-05"
+                value="week-06"
             >
 
 
@@ -167,125 +175,164 @@
                 </label>
 
                 <select
-                    id="course"
-                    name="course"
-                    required
-                >
+    id="course_code"
+    name="course_code"
+    required
+>
 
-                    <option value="">
-                        -- Pilih Kursus --
-                    </option>
+    <option value="">
+        -- Pilih Kursus --
+    </option>
 
-                    <option value="web-dasar">
-                        Web Dasar
-                    </option>
+    <?php foreach ($courses as $course): ?>
 
-                    <option value="php-dasar">
-                        PHP Dasar
-                    </option>
+        <option value="<?= e($course['code']) ?>">
+            <?= e($course['name']) ?>
+            - <?= formatRupiah($course['fee']) ?>
+        </option>
 
-                    <option value="laravel-fundamental">
-                        Laravel Fundamental
-                    </option>
+    <?php endforeach; ?>
 
-                </select>
+</select>
 
             </div>
 
 
-            <fieldset class="form-group">
+           <fieldset class="form-group">
 
-                <legend>
-                    Jenis Peserta
-                </legend>
+    <legend>
+        Jenis Peserta
+    </legend>
 
-                <label class="choice">
+    <label class="choice">
 
-                    <input
-                        type="radio"
-                        name="participant_type"
-                        value="mahasiswa"
-                        required
-                    >
+        <input
+            type="radio"
+            name="participant_type"
+            value="mahasiswa"
+            required
+        >
 
-                    Mahasiswa
+        Mahasiswa
 
-                </label>
+    </label>
+
+    <label class="choice">
+
+        <input
+            type="radio"
+            name="participant_type"
+            value="guru"
+        >
+
+        Guru
+
+    </label>
+
+    <label class="choice">
+
+        <input
+            type="radio"
+            name="participant_type"
+            value="umum"
+        >
+
+        Umum
+
+    </label>
+
+</fieldset>
+<fieldset class="form-group">
+
+    <legend>
+        Minat Belajar
+    </legend>
+
+    <?php foreach ($interestOptions as $value => $label): ?>
+
+        <label class="choice">
+
+            <input
+                type="checkbox"
+                name="interests[]"
+                value="<?= e($value) ?>"
+            >
+
+            <?= e($label) ?>
+
+        </label>
+
+    <?php endforeach; ?>
+
+</fieldset>
+<div class="form-group">
+
+    <label for="learning_mode">
+        Metode Belajar
+    </label>
+
+    <select
+        id="learning_mode"
+        name="learning_mode"
+        required
+    >
+
+        <option value="">
+            -- Pilih Metode --
+        </option>
+
+        <option value="offline">
+            Tatap Muka
+        </option>
+
+        <option value="online">
+            Online
+        </option>
+
+        <option value="hybrid">
+            Hybrid
+        </option>
+
+    </select>
+
+</div>
 
 
-                <label class="choice">
+<div class="form-group">
 
-                    <input
-                        type="radio"
-                        name="participant_type"
-                        value="umum"
-                    >
+    <label for="package_count">
+        Jumlah Paket
+    </label>
 
-                    Umum
+    <select
+        id="package_count"
+        name="package_count"
+        required
+    >
 
-                </label>
+        <?php for ($i = 1; $i <= 3; $i++): ?>
 
-            </fieldset>
+            <option value="<?= $i ?>">
+                <?= $i ?> paket
+            </option>
 
+        <?php endfor; ?>
 
-            <fieldset class="form-group">
+    </select>
 
-                <legend>
-                    Minat Belajar
-                </legend>
-
-                <label class="choice">
-
-                    <input
-                        type="checkbox"
-                        name="interests[]"
-                        value="ui-ux"
-                    >
-
-                    UI/UX
-
-                </label>
-
-
-                <label class="choice">
-
-                    <input
-                        type="checkbox"
-                        name="interests[]"
-                        value="database"
-                    >
-
-                    Database
-
-                </label>
-
-
-                <label class="choice">
-
-                    <input
-                        type="checkbox"
-                        name="interests[]"
-                        value="backend"
-                    >
-
-                    Backend
-
-                </label>
-
-            </fieldset>
-
+</div>
 
             <div class="form-group">
 
-                <label for="note">
-                    Catatan
-                </label>
+                <label for="notes">
+    Catatan
+</label>
 
-                <textarea
-                    id="note"
-                    name="note"
-                    rows="5"
-                    maxlength="500"
+<textarea
+    id="notes"
+    name="notes"
+    rows="5"
+    maxlength="300"
                     placeholder="Tuliskan catatan jika ada..."
                 ></textarea>
 
