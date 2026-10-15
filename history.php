@@ -2,7 +2,7 @@
 
 require __DIR__ . '/helpers.php';
 
-$history = [
+$registrations = [
     [
         'name' => 'Alya',
         'course' => 'Web Dasar',
@@ -66,7 +66,7 @@ $history = [
 
         <tbody>
 
-            <?php foreach ($history as $index => $item): ?>
+            <?php foreach ($registrations as $index => $item): ?>
 
                 <tr>
 

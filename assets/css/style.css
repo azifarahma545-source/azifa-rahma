@@ -665,3 +665,290 @@ fieldset.form-group {
         font-size: 34px;
     }
 }
+/* ===== KATALOG KURSUS PINK ===== */
+#katalog {
+    padding: 80px 7%;
+    background: linear-gradient(180deg, #fff7fb, #fff0f6);
+    border-radius: 28px;
+    margin: 35px auto;
+}
+
+#katalog h2 {
+    text-align: center;
+    color: #a83268;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+#katalog > p {
+    text-align: center;
+    color: #806574;
+    margin-bottom: 35px;
+}
+
+#katalog .table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(190, 70, 125, 0.12);
+    border: 1px solid #f7d7e6;
+}
+
+#katalog table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+#katalog thead {
+    background: linear-gradient(135deg, #d94f91, #b83280);
+    color: white;
+}
+
+#katalog th {
+    padding: 18px 16px;
+    text-align: left;
+    font-size: 15px;
+}
+
+#katalog td {
+    padding: 17px 16px;
+    color: #594451;
+    border-bottom: 1px solid #f8e5ee;
+    line-height: 1.6;
+}
+
+#katalog tbody tr:nth-child(even) {
+    background: #fff6fa;
+}
+
+#katalog tbody tr:hover {
+    background: #ffe8f2;
+    transition: background 0.2s ease;
+}
+
+#katalog tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#katalog td a {
+    display: inline-block;
+    padding: 9px 17px;
+    background: #d94f91;
+    color: white;
+    text-decoration: none;
+    border-radius: 22px;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: 0.2s ease;
+}
+
+#katalog td a:hover {
+    background: #ad286b;
+    transform: translateY(-2px);
+}
+/* ===== PERBAIKAN TAMPILAN KATALOG KURSUS ===== */
+
+#katalog {
+    display: block;
+    padding: 60px 5%;
+    background: #fff5f9;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+#katalog *,
+#katalog *::before,
+#katalog *::after {
+    box-sizing: border-box;
+}
+
+#katalog h2 {
+    text-align: center;
+    color: #c4457b;
+    font-size: 32px;
+    margin: 0 0 12px;
+}
+
+#katalog > p {
+    text-align: center;
+    color: #8b6b7a;
+    margin: 0 0 28px;
+}
+
+/* Kotak pilihan kursus */
+#katalog .catalog-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    background: #ffe1ed;
+    border: 1px solid #f5bfd5;
+    border-radius: 16px;
+}
+
+#katalog .catalog-info h3 {
+    margin: 0 0 5px;
+    color: #a83267;
+}
+
+#katalog .catalog-info p {
+    margin: 0;
+    color: #8b6074;
+    font-size: 13px;
+}
+
+#katalog .catalog-info a {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #d94f91;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+/* Tabel */
+#katalog .table-container {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid #f5d5e2;
+    border-radius: 15px;
+}
+
+#katalog table {
+    display: table;
+    width: 100%;
+    min-width: 900px;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+}
+
+#katalog thead {
+    display: table-header-group;
+    background: linear-gradient(90deg, #c94380, #e77caf);
+    color: #fff;
+}
+
+#katalog tbody {
+    display: table-row-group;
+}
+
+#katalog tr {
+    display: table-row;
+}
+
+#katalog th,
+#katalog td {
+    display: table-cell;
+    padding: 17px 14px;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: none;
+    border-bottom: 1px solid #f7e2eb;
+    font-size: 13px;
+}
+
+#katalog th {
+    color: #fff;
+    font-weight: 700;
+}
+
+#katalog td {
+    color: #68515e;
+}
+
+#katalog tbody tr:hover {
+    background: #fff2f7;
+}
+
+#katalog tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#katalog .course-code {
+    color: #b63c78;
+    font-weight: bold;
+}
+
+#katalog .course-price {
+    color: #bd4380;
+    font-weight: bold;
+}
+
+#katalog .seat-count {
+    display: inline-block;
+    min-width: 34px;
+    padding: 8px;
+    text-align: center;
+    background: #f0ddfa;
+    color: #8044a5;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+#katalog .status {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#katalog .status-available {
+    color: #328466;
+    background: #d8f4e7;
+}
+
+#katalog .status-full {
+    color: #b34369;
+    background: #ffe0e8;
+}
+
+#katalog .btn-register {
+    display: inline-block;
+    padding: 10px 17px;
+    background: #d94f91;
+    color: #fff;
+    border-radius: 22px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#katalog .btn-register:hover {
+    background: #b93676;
+}
+
+#katalog .btn-disabled {
+    color: #b34369;
+    font-weight: bold;
+}
+
+#katalog .catalog-note {
+    margin-top: 15px;
+    color: #987a89;
+    font-size: 12px;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    #katalog {
+        padding: 35px 15px;
+    }
+
+    #katalog h2 {
+        font-size: 25px;
+    }
+
+    #katalog .catalog-info {
+        padding: 16px;
+    }
+}
